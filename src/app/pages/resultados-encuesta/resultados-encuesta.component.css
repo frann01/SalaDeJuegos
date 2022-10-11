@@ -1,0 +1,7 @@
+html, body
+{
+    background: transparent;
+    backdrop-filter: blur(7px); border-radius: 20px;
+    text-align: center;
+    color: white;
+}

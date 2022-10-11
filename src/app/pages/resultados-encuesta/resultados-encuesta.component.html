@@ -1,0 +1,33 @@
+<body style="background: transparent;
+backdrop-filter: blur(7px); border-radius: 20px; padding: 3%;" >
+    <h1>Respuestas</h1>
+    <table class="table table-striped" style="color: white;">
+        <thead style="color: white;">
+            <tr>
+                <th>Fecha</th>
+                <th>Nombre</th>
+                <th>Sexo</th>
+                <th>Edad</th>
+                <th>Telefono</th>
+                <th>Experiencia</th>
+                <th>Juego Favorito</th>
+                <th>Recomienda</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let resultado of resulatdosSrv.resultadosEncuesta" style="color: white;">
+                <td>{{resultado.fecha}}</td>
+                <td>{{resultado.apellido +", " +resultado.nombre}} </td>
+                <td>{{resultado.sexo}}</td>
+                <td>{{resultado.edad}}</td>
+                <td>{{resultado.telefono}}</td>
+                <td>{{resultado.experiencia}}</td>
+                <td>{{resultado.juegoFav}}</td>
+                <td>{{resultado.recomienda}}</td>
+            </tr>
+    
+        </tbody>
+    </table>
+    
+    
+</body>

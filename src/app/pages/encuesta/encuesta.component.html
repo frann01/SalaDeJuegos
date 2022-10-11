@@ -1,0 +1,161 @@
+<div class="container" style="background: transparent;
+backdrop-filter: blur(7px); border-radius: 20px;">
+    <main class="container" style="background: transparent;
+    backdrop-filter: blur(7px);">
+    <div class="container">
+        <h2>Encuesta de Usuarios</h2>      
+    </div>
+    <div class="container">
+        <form [formGroup]="forma" (ngSubmit)="agregarRespuesta()">
+            <div class="row g-3">
+              <div class="col-sm">
+                <label for="firstName" class="form-label">Nombre</label>
+                <input class="form-control" placeholder="Nombre" type="text" formControlName="nombre">
+                <small class="invalid"
+                *ngIf="forma.controls.nombre.errors?.required &&
+                forma.controls.nombre.touched">
+                El nombre es requerido
+              </small>
+              <small class="invalid"
+              *ngIf="forma.controls.nombre.errors?.containsSpaces &&
+              forma.controls.nombre.touched">
+              El nombre no puede contener espacios
+            </small>
+              </div>
+  
+              <div class="col-sm">
+                <label for="lastName" class="form-label">Apellido</label>
+                <input class="form-control" placeholder="Apellido" type="text" formControlName="apellido">
+                <small class="invalid"
+                *ngIf="forma.controls.apellido.errors?.required &&
+                forma.controls.apellido.touched">
+                El apellido es requerido
+              </small>
+              <small class="invalid"
+              *ngIf="forma.controls.apellido.errors?.containsSpaces &&
+              forma.controls.apellido.touched">
+              El apellido no puede contener espacios
+            </small>
+              </div>
+
+              <div class="col-sm">
+                <label for="lastName" class="form-label">Edad</label>
+                <input class="form-control" placeholder="Edad" type="text" formControlName="edad">
+                <small class="invalid"
+                *ngIf="forma.controls.edad.errors?.required &&
+                forma.controls.edad.touched">
+                La edad es requerida
+              </small>
+              <small class="invalid"
+              *ngIf="forma.controls.edad.errors?.min || 
+              forma.controls.edad.errors?.max &&
+              forma.controls.edad.touched">
+              La edad debe ser de 18 a 99 años
+            </small>
+              </div>
+            </div>
+
+            <br>
+
+            <div class="row g-3">
+                <div class="col-sm">
+                  <label  for="lastName" class="form-label">Sexo</label>
+                  <select class="form-control" placeholder="Sexo" formControlName="sexo">
+                    <option value="">Elija...</option>
+                    <option>Hombre</option>
+                    <option>Mujer</option>
+                    <option>Otro</option>
+                  </select>
+  
+                  <small class="invalid"
+                *ngIf="forma.controls.sexo.errors?.required &&
+                forma.controls.sexo.touched">
+                El sexo es requerido
+              </small>
+                </div>
+  
+                <div class="col-sm">
+                  <label for="lastName" class="form-label">Telefono</label>
+                  <input class="form-control" placeholder="Telefono" type="text" formControlName="telefono">
+                  <small class="invalid"
+                  *ngIf="forma.controls.telefono.errors?.required &&
+                  forma.controls.telefono.touched">
+                  El telefono es requerido
+                </small>
+                <small class="invalid"
+                *ngIf="
+                forma.controls.telefono.errors?.maxlength &&
+                forma.controls.telefono.touched">
+                El teléfono no debe tener mas de 10 numeros
+              </small>
+                </div>
+  
+                <div class="col-sm">
+                  <label for="lastName" class="form-label">Recomendaria la pagina?</label>
+                  <select class="form-control" placeholder="Sexo" formControlName="recomendar">
+                    <option value="">Elija...</option>
+                    <option>Si</option>
+                    <option>No</option>
+                  </select>
+                  <small class="invalid"
+                  *ngIf="forma.controls.recomendar.errors?.required &&
+                  forma.controls.recomendar.touched">
+                  La respuesta es requerida
+                </small>
+                </div>
+            </div>
+
+            <br>
+
+            <div class="row g-3">
+                <div class="col-sm-6 borde">
+                    <h4 class="mb-3">Califique su experiencia general</h4>
+                    <label style="font-size: x-large;" class="form-check-label" >{{experiencia}}</label>
+                    <br>
+                    <br>
+                    <input style="width: 70%;" type="range" formControlName="slider" min="0" max="3" (change)="valorSlide()">
+                </div>
+
+                <div class="col-sm-6 borde">
+                  <h4 class="mb-3">Cual fue su juego favorito?</h4>
+
+                  <div class="form-check">
+                  <input name="juegoFav" value="Preguntados" formControlName="juegoFav" type="radio" class="form-check-input" >
+                  <label class="form-check-label" >Preguntados</label>
+                  </div>
+
+                  <div class="form-check">
+                  <input name="juegoFav" value="Snake" formControlName="juegoFav" type="radio" class="form-check-input" required>
+                  <label class="form-check-label" >Snake</label>
+                  </div>
+
+                  <div class="form-check">
+                  <input name="juegoFav" value="Ahorcado" type="radio" formControlName="juegoFav" class="form-check-input" required>
+                  <label class="form-check-label" >Ahorcado</label>
+                  </div>
+
+                  <div class="form-check">
+                    <input name="juegoFav" value="Mayor o Menor" type="radio" formControlName="juegoFav" class="form-check-input" required>
+                    <label class="form-check-label" >Mayor Menor</label>
+                  </div>
+              </div>
+            </div>
+
+            
+            
+            <br>
+
+            <div class="form-check" style="width: 43%;">
+            <input type="checkbox" formControlName="compartir" class="form-check-input" id="same-address">
+            <label class="form-check-label" for="same-address">Estoy de acuerdo con que se compartan mis datos</label>
+            </div>
+
+            <br>
+  
+            <button class="glow-on-hover" type="submit" >Agregar</button>
+          </form>
+          <br>
+    </div>
+    </main>
+  </div>
+

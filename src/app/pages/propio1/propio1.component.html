@@ -1,0 +1,11 @@
+
+    <div  class="div_juego">
+        <h1 *ngIf="SnakeSrv.perdio" style="color: white;">Perdiste</h1>
+        <canvas class="canvas" id="arena"></canvas>
+        <p Juego class="puntaje">
+        Puntaje: {{SnakeSrv.puntos}}
+        </p>
+        <button class="glow-on-hover" *ngIf="!SnakeSrv.juganto" (click)="Jugar()">Jugar</button>
+        <button class="glow-on-hover" *ngIf="SnakeSrv.perdio" (click)="Jugar()">Jugar de Vuelta</button>
+    </div>
+    

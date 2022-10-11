@@ -1,0 +1,43 @@
+body{
+    display: flex;
+    border-radius: 15px;
+}
+
+.div_right
+{
+    float: right;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    background-image: url('../../../assets/img/playing-background-design-1600-x-1200_4x.webp');
+    border-radius: 15px;
+    width: 50%;
+}
+
+.div_left
+{
+    float: right;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+    background-color:aliceblue;
+    padding: 5%;
+    border-radius: 15px;
+    width: 50%;
+}
+
+.div_foto
+{
+    margin-top: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5%;
+}
+
+.img
+{
+    border-radius: 55%;
+    height: 10%;
+    width: 80%;
+}

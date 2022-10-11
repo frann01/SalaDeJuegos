@@ -1,0 +1,36 @@
+
+<div class="div">
+<main class="form-signin w-100 m-auto">
+
+
+
+  <img class="mb-4" src="assets/img/logo.png" alt="" style="padding-left: 100px; height:100px">
+  <div class="form-floating">
+    <input type="text" class="form-control" id="edadDos" placeholder="Edad Dos" [(ngModel)]="email">
+    <label for="floatingPassword">Email</label>
+  </div>
+
+  <div class="form-floating">
+    <input type="text" class="form-control" id="edadDos" placeholder="Edad Dos" [(ngModel)]="nombre_usuario">
+    <label for="floatingPassword">Nombre de Usuario</label>
+  </div>
+
+  <div class="form-floating">
+    <input type="password" class="form-control" id="edadDos" placeholder="Edad Dos" [(ngModel)]="clave">
+    <label for="floatingPassword">Contraseña</label>
+  </div>
+  <div class="form-floating">
+    <input type="password" class="form-control" id="edadDos" placeholder="Edad Dos" [(ngModel)]="copiaClave">
+    <label for="floatingPassword">Repita la Contraseña</label>
+  </div>
+
+  <label style="color: white;" for="floatingPassword">Foto</label>
+  <div class="form-floating">
+    <input style="color: white;" (change)="elegirFoto($event)" type="file" accept=".png,.jpg" />
+    
+  </div>
+  <br>
+
+  <button class="glow-on-hover" (click)="Registrar()">Registrar</button>
+</main>
+</div>

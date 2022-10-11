@@ -1,0 +1,77 @@
+<body >
+    <p style="color: white; font-size: 500%; font-weight: 600;">Puntajes</p>
+    <br>
+    <div class="borde">
+        <div class="div_puntajes">
+            <h1 style="color: white;">Preguntados</h1>
+            <table class="table table-striped" style="color: white;">
+                <thead style="color: white;">
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let puntaje of authSrv.PreguntadosP" style="color: white;">
+                        <td>{{puntaje.nombre_usuario}}</td>
+                        <td>{{puntaje.MayorPPreguntados}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <div>
+            <h1 style="color: white;">Snake</h1>
+            <table class="table table-striped" style="color: white;">
+                <thead style="color: white;">
+                    <tr >
+                        <th>Usuario</th>
+                        <th>Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let puntaje of authSrv.SnakeP"  style="color: white;">
+                        <td>{{puntaje.nombre_usuario}}</td>
+                        <td>{{puntaje.MayorPPropio}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div>
+            <h1 style="color: white;">Ahorcado</h1>
+            <table class="table table-striped" style="color: white;">
+                <thead style="color: white;">
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Victorias</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let puntaje of authSrv.AhorcadoP"  style="color: white;">
+                        <td>{{puntaje.nombre_usuario}}</td>
+                        <td>{{puntaje.MayorPAhorcado}} </td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+
+        <div>
+            <h1 style="color: white;">Mayor o menor</h1>
+            <table class="table table-striped" style="color: white;">
+                <thead style="color: white;">
+                    <tr>
+                        <th>Usuario</th>
+                        <th>Puntaje</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let puntaje of authSrv.MayorP" style="color: white;">
+                        <td>{{puntaje.nombre_usuario}}</td>
+                        <td>{{puntaje.MayorPMayorMenor}} </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>

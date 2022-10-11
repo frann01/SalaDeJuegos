@@ -1,0 +1,27 @@
+<div class="div">
+<main class="form-signin w-100 m-auto" style="background: transparent;
+backdrop-filter: blur(7px);">
+
+
+
+  <img class="mb-4" src="assets/img/logo.png" alt="" style="padding-left: 100px; height:100px">
+<div class="form-floating">
+  <input type="text" class="form-control" id="Nombre" placeholder="Edad Dos" [(ngModel)]="email">
+  <label for="floatingPassword">Email</label>
+</div>
+<br>
+<div class="form-floating">
+  <input type="password" class="form-control" id="Contraseña" placeholder="Edad Dos" [(ngModel)]="clave">
+  <label for="floatingPassword">Contraseña</label>
+</div>
+
+
+  <button class="glow-on-hover" (click)="Ingresar()">Ingresar</button>
+  <br>
+
+  <button class="glow-on-hover" (click)="Perfil1()">Administrador</button>
+  <br>
+  <button class="glow-on-hover" (click)="Perfil2()">Usuario</button>
+
+</main>
+</div>
