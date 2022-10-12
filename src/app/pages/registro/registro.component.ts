@@ -36,7 +36,7 @@ export class RegistroComponent implements OnInit {
 
   async Registrar()
   {
-    if(this.email !="" && this.clave !="" && this.copiaClave != "" && this.foto != null)
+    if(this.email !="" && this.clave !="" && this.copiaClave != "" && this.foto != null && this.nombre_usuario !="")
     { 
       if(this.clave.length >=6)
       {
@@ -45,14 +45,14 @@ export class RegistroComponent implements OnInit {
           if(await this.ChequearEmail(this.email)==false)
           {
             console.log("registrando");
+            this.toastr.success('', 'Registrando')
             this.user.email=this.email;
             this.user.password = this.clave
             this.user.nombre_usuario = this.nombre_usuario
             this.user.foto = this.foto
 
               const user = await this.authService.onRegister(this.user)
-              setTimeout(async () => {
-                if(user)
+              if(user)
                 {
                   this.email="";
                   this.clave="";
@@ -60,21 +60,21 @@ export class RegistroComponent implements OnInit {
                   this.nombre_usuario="";
                   console.log('Exito! Usuario Registrado')
                   this.toastr.success('Usuario Registrado', 'Exito')
-                  const user = await this.authService.onLogin(this.user)
-                  if(user)
-                  {
-                    console.info("usuario encontrado: ", user);
-                    this.toastr.success("Ingreso exitoso!", 'Exito');
-                    this.router.navigate(['']);
-                  }
-                  else
-                  {
-                    this.toastr.error("Hubo un error", 'Error')
-                  }
-                }
+                  setTimeout(async () => {
+                    const user = await this.authService.onLogin(this.user)
+                    if(user)
+                    {
+                      console.info("usuario encontrado: ", user);
+                      this.toastr.success("Ingreso exitoso!", 'Exito');
+                      this.router.navigate(['']);
+                    }
+                    else
+                    {
+                      this.toastr.error("Hubo un error", 'Error')
+                    }
                 
-              }, 1000);
-              
+                  }, 3000);
+                }
 
           }
           else

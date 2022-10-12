@@ -1,7 +1,8 @@
 
     <div  class="div_juego">
         <h1 *ngIf="SnakeSrv.perdio" style="color: white;">Perdiste</h1>
-        <canvas class="canvas" id="arena"></canvas>
+        <img *ngIf="!SnakeSrv.juganto" src="../../../assets/img/snake2.png" class="imagen" width="60%">
+        <canvas *ngIf="SnakeSrv.juganto" class="canvas" id="arena"></canvas>
         <p Juego class="puntaje">
         Puntaje: {{SnakeSrv.puntos}}
         </p>

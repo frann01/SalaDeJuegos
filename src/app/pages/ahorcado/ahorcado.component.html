@@ -9,7 +9,7 @@
   
     <div class="">
         <div>
-          <div class=" div_img">
+          <div class="div_img">
             <div class="div_texto">
               <h3 class="centrado">{{escondida}}</h3>
               <p style="font-size: large; font-weight:600; color: aliceblue">ERRORES &nbsp;{{ errores }} / 7</p>
@@ -27,7 +27,9 @@
                 <button class="btn boton_letra" (click)="JugarDeVuelta()">Jugar de Nuevo</button>
               </div>
             </div>
-            <img src={{src_img_ahorcado}} alt="hangman"  height="200" class="float-right ">
+            <div class="ahorcado">
+              <img src={{src_img_ahorcado}} alt="hangman"  height="200" class="float-right ">
+            </div>
             <br>
             </div>
         </div>

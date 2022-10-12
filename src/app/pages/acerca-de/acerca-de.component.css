@@ -1,7 +1,10 @@
 body{
     display: flex;
     border-radius: 15px;
+    -webkit-animation:slide-in-top 1s cubic-bezier(.25,.46,.45,.94) both;
+    animation:slide-in-top 1s cubic-bezier(.25,.46,.45,.94) both;
 }
+@-webkit-keyframes slide-in-top{0%{-webkit-transform:translateY(-1000px);transform:translateY(-1000px);opacity:0}100%{-webkit-transform:translateY(0);transform:translateY(0);opacity:1}}@keyframes slide-in-top{0%{-webkit-transform:translateY(-1000px);transform:translateY(-1000px);opacity:0}100%{-webkit-transform:translateY(0);transform:translateY(0);opacity:1}}
 
 .div_right
 {

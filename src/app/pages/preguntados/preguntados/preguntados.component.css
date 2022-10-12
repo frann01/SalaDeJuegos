@@ -75,3 +75,18 @@
     text-align: center;
     border-radius: 20px;
 }
+
+.hover
+{
+    transition: .3s;
+	background-position: center;
+	background-size:cover;
+}
+
+
+.hover:hover
+{
+    -ms-transform: scale(1.1); 
+  -webkit-transform: scale(1.1); 
+  transform: scale(1.1);
+}

@@ -28,6 +28,10 @@ export class SonidosService {
     src: ['../../../assets/sonidos/mensaje.mp3']
   });
 
+  click = new Howl({
+    src: ['../../../assets/sonidos/click.mp3']
+  });
+
   Moneda()
   {
     this.moneda.play();
@@ -46,6 +50,11 @@ export class SonidosService {
   Error()
   {
     this.error.play()
+  }
+
+  Click()
+  {
+    this.click.play()
   }
 
   Mensaje()

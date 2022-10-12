@@ -10,14 +10,8 @@ export class PuntajesComponent implements OnInit {
 
   constructor(public authSrv : AuthService) { }
 
-  TopPuntajePreguntados:any= {};
-  TopPuntajeSnake:any= {};
-  TopPuntajeMayor:any= {};
-  TopVictoriasAhorcado:any= {};
-
-
   async ngOnInit() {
-    this.authSrv.ObtenerTopPreguntados()
+     this.authSrv.ObtenerTopPreguntados()
      this.authSrv.ObtenerTopAhorcado()
      this.authSrv.ObtenerTopMayor()
      this.authSrv.ObtenerTopSnake()

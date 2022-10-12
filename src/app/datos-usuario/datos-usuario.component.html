@@ -1,14 +1,16 @@
 <body>
     <div class="div_left">
-        <h1>{{service.UsuarioActivo.nombre_usuario}}</h1>
-        <h2>{{service.isLogged.email}}</h2>
-        <p></p>
-        <h3>Puntajes mas altos</h3>
-        <p>Preguntados: {{service.UsuarioActivo.MayorPPreguntados}}</p>
-        <p>Mayor o menor: {{service.UsuarioActivo.MayorPMayorMenor}}</p>
-        <p>Snake: {{service.UsuarioActivo.MayorPPropio}}</p>
-        <h3>Victorias</h3>
-        <p>Ahorcado: {{service.UsuarioActivo.MayorPAhorcado}}</p>
+        <div class="fondo_izquierda">
+            <h1>{{service.UsuarioActivo.nombre_usuario}}</h1>
+            <h2>{{service.isLogged.email}}</h2>
+            <p></p>
+            <h3>High Scores</h3>
+            <p class="puntajes">Preguntados: {{service.UsuarioActivo.MayorPPreguntados}}</p>
+            <p class="puntajes">Mayor o menor: {{service.UsuarioActivo.MayorPMayorMenor}}</p>
+            <p class="puntajes">Snake: {{service.UsuarioActivo.MayorPPropio}}</p>
+            <h3>Victorias</h3>
+            <p class="puntajes">Ahorcado: {{service.UsuarioActivo.MayorPAhorcado}}</p>
+        </div>
     </div>
     <div class="div_right">
         <div class="div_foto">

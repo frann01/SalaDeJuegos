@@ -14,10 +14,10 @@
         <h1 style="color: aliceblue;" *ngIf="perdio">Perdiste</h1>
         
         <div class="div_botones">
-            <button  *ngIf="jugando" class="glow-on-hover margin-left" (click)="Mayor()">Mayor</button>
-            <button  *ngIf="jugando" class="glow-on-hover" (click)="Menor()">Menor</button>
+            <button  *ngIf="jugando" class="glow-on-hover margin-left hover" (click)="Mayor()">Mayor</button>
+            <button  *ngIf="jugando" class="glow-on-hover hover" (click)="Menor()">Menor</button>
         </div>
-        <button class="glow-on-hover" *ngIf="!jugando" (click)="jugar()">Jugar</button>
+        <button class="glow-on-hover hover" *ngIf="!jugando" (click)="jugar()">Jugar</button>
         <br>
     </div>
     

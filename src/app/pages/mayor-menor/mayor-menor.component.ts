@@ -26,6 +26,7 @@ export class MayorMenorComponent implements OnInit {
 
   jugar()
   {
+    this.sonidos.Click()
     this.perdio = false;
     this.puntaje =0;
     this.generarNumeroActual();
@@ -42,6 +43,7 @@ export class MayorMenorComponent implements OnInit {
       await this.generarNumeroSiguiente();
     }
     console.log(this.numeroActual + ' | ' + this.numeroSiguiente);
+
     if(this.numeroActual<this.numeroSiguiente)
     {
       this.sonidos.Moneda()
@@ -52,10 +54,6 @@ export class MayorMenorComponent implements OnInit {
     }
     else
     {
-      this.sonidos.Perder()
-      this.perdio = true;
-      console.log(this.numeroSiguiente);
-      this.jugando=false;
       this.perder()
     }
   }
@@ -67,21 +65,19 @@ export class MayorMenorComponent implements OnInit {
     {
       await this.generarNumeroSiguiente();
     }
-    console.log(this.numeroActual + ' | ' + this.numeroSiguiente);
+
+    console.log("Menor: ", this.numeroActual + ' | ' + this.numeroSiguiente);
+
     if(this.numeroActual>this.numeroSiguiente)
     {
       this.sonidos.Moneda()
       this.puntaje++;
       this.numeroActual = this.numeroSiguiente;
       this.srcActual=this.srcSiguiente
-      
     }
     else
     {
-      this.sonidos.Perder()
-      this.perdio = true;
-      console.log(this.numeroSiguiente);
-      this.jugando=false;
+      
       this.perder()
     }
   }
@@ -92,7 +88,6 @@ export class MayorMenorComponent implements OnInit {
     then(res => res.json())
     .then(res => 
       {
-        console.log()
         this.srcActual = res.cards[0].image
         console.log("API",res);
         if(res.cards[0].value == 'QUEEN')
@@ -110,6 +105,10 @@ export class MayorMenorComponent implements OnInit {
         else if(res.cards[0].value == 'ACE')
         {
           this.numeroActual = res.cards[0].value=14
+        }
+        else if(res.cards[0].value == '10')
+        {
+          this.numeroActual = res.cards[0].value=10
         }
         else
         {
@@ -142,6 +141,10 @@ export class MayorMenorComponent implements OnInit {
         {
           this.numeroSiguiente = res.cards[0].value=14
         }
+        else if(res.cards[0].value == '10')
+        {
+          this.numeroActual = res.cards[0].value=10
+        }
         else
         {
           this.numeroSiguiente = res.cards[0].value
@@ -151,6 +154,10 @@ export class MayorMenorComponent implements OnInit {
 
   perder()
   {
+    this.sonidos.Perder()
+      this.perdio = true;
+      console.log(this.numeroSiguiente);
+      this.jugando=false;
     if(this.service.UsuarioActivo.MayorPMayorMenor < this.puntaje)
     {
       this.service.cambiarScore('M', this.puntaje)

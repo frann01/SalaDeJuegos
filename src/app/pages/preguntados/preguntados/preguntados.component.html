@@ -5,7 +5,7 @@
         <br *ngIf="mostrar">
         <br *ngIf="mostrar">
         <br *ngIf="mostrar">
-        <button class="button" (click)="jugar()" *ngIf="mostrar">JUGAR</button>
+        <button class="button hover" (click)="jugar() ; sonidos.Click()" *ngIf="mostrar">JUGAR</button>
         <div *ngIf="perdio">
             <img style="width: 50%;" src="../../../../assets/img/Pokémon-Logo-PNG.png">
             <div class="pregunta" id="pregunta">
@@ -14,7 +14,7 @@
             <div class="puntaje" id="puntaje">Tu puntaje fue {{puntaje}}</div>
             <div class="puntaje" id="puntaje">La respuesta era {{poke1.name}}</div>
             <br>
-            <button class="button" (click)="jugarDeNuevo()" *ngIf="!jugando">JUGAR DE NUEVO</button>
+            <button class="button hover" (click)="jugarDeNuevo() ; sonidos.Click()" *ngIf="!jugando">JUGAR DE NUEVO</button>
         </div>
         
         <div class="contenedor" *ngIf="jugando" >
@@ -25,10 +25,10 @@
               </div>
               <img src="{{srcImg}}" class="imagen" id="imagen">
             </div>
-            <div class="btn" id="btn1" (click)="oprimir_btn(0)">{{rsp1}}</div>
-            <div class="btn" id="btn2" (click)="oprimir_btn(1)">{{rsp2}}</div>
-            <div class="btn" id="btn3" (click)="oprimir_btn(2)">{{rsp3}}</div>
-            <div class="btn" id="btn4" (click)="oprimir_btn(3)">{{rsp4}}</div>
+            <div class="btn hover" id="btn1" (click)="oprimir_btn(0)">{{rsp1}}</div>
+            <div class="btn hover" id="btn2" (click)="oprimir_btn(1)">{{rsp2}}</div>
+            <div class="btn hover" id="btn3" (click)="oprimir_btn(2)">{{rsp3}}</div>
+            <div class="btn hover" id="btn4" (click)="oprimir_btn(3)">{{rsp4}}</div>
         </div>
     </div>
   

@@ -10,7 +10,7 @@ import { SonidosService } from 'src/app/services/sonidos.service';
 })
 export class PreguntadosComponent implements OnInit {
 
-  constructor(private pokemonSvc : PokemonPreguntadosService, private service:AuthService, private sonidos : SonidosService ) {  }
+  constructor(private pokemonSvc : PokemonPreguntadosService, private service:AuthService, public sonidos : SonidosService ) {  }
 
   pokemones : any[]=[];
   pokemon_ganador=""
@@ -44,7 +44,6 @@ export class PreguntadosComponent implements OnInit {
 
   jugar()
   {
-    
     this.mostrar=false
     let numeros : number[]=this.generarRandom();
     this.poke1=this.pokemonSvc.pokemones[numeros[0]];

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import jwt_decode from "jwt-decode";
-
+import { SonidosService } from 'src/app/services/sonidos.service';
 
 @Component({
   selector: 'app-home',
@@ -10,7 +10,7 @@ import jwt_decode from "jwt-decode";
 })
 export class HomeComponent implements OnInit {
 
-  constructor(public authService:AuthService) { }
+  constructor(public authService:AuthService, public sonido:SonidosService) { }
   usuarioMail:any;
   currentUser:any;
 

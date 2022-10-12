@@ -87,7 +87,7 @@ export class AuthService implements OnDestroy {
     {
 
       const storage = getStorage();
-      const storageRef = ref(storage, `imagenes/${user.foto.name}`)
+      const storageRef = ref(storage, `imagenes/${user.foto.name + this.formatDate(new Date())}`)
       const uploadTask = uploadBytesResumable(storageRef, user.foto)
       uploadTask.on('state_changed', (snapshot)=>
       {
@@ -96,9 +96,9 @@ export class AuthService implements OnDestroy {
       (error)=>{console.log("Hubo un error en la subida")},
       async ()=>
       {
-        await getDownloadURL(uploadTask.snapshot.ref).then((downloadUrl) => 
+        await getDownloadURL(uploadTask.snapshot.ref).then(async (downloadUrl) => 
         {
-          this.afAuth.createUserWithEmailAndPassword(user.email, user.password).then(cred =>{
+          await this.afAuth.createUserWithEmailAndPassword(user.email, user.password).then(cred =>{
             this.afs.collection('usuarios').doc(cred.user.uid).set({
               nombre_usuario:user.nombre_usuario,
               MayorPPreguntados:0,
@@ -112,10 +112,6 @@ export class AuthService implements OnDestroy {
           })
           })
       })
-
-
-
-      
       return true
     }
     catch(error){console.log("Error en register", error);return false}
@@ -202,7 +198,7 @@ export class AuthService implements OnDestroy {
 
   ObtenerTopPreguntados()
   {
-    this.Preguntados = this.afs.collection('usuarios', ref => ref.orderBy('MayorPPreguntados').limit(3))
+    this.Preguntados = this.afs.collection('usuarios', ref => ref.orderBy('MayorPPreguntados').limit(5))
     return this.Preguntados.valueChanges().subscribe(puntajes =>
       {
         this.PreguntadosP = []
@@ -215,7 +211,7 @@ export class AuthService implements OnDestroy {
 
   ObtenerTopSnake()
   {
-    this.Snake = this.afs.collection('usuarios', ref => ref.orderBy('MayorPPropio').limit(3))
+    this.Snake = this.afs.collection('usuarios', ref => ref.orderBy('MayorPPropio').limit(5))
     return this.Snake.valueChanges().subscribe(puntajes =>
       {
         this.SnakeP = []
@@ -228,7 +224,7 @@ export class AuthService implements OnDestroy {
 
   ObtenerTopMayor()
   {
-    this.Mayor = this.afs.collection('usuarios', ref => ref.orderBy('MayorPMayorMenor').limit(3))
+    this.Mayor = this.afs.collection('usuarios', ref => ref.orderBy('MayorPMayorMenor').limit(5))
     return this.Mayor.valueChanges().subscribe(puntajes =>
       {
         this.MayorP = []
@@ -241,7 +237,7 @@ export class AuthService implements OnDestroy {
 
   ObtenerTopAhorcado()
   {
-    this.Ahorcado = this.afs.collection('usuarios', ref => ref.orderBy('MayorPAhorcado').limit(3))
+    this.Ahorcado = this.afs.collection('usuarios', ref => ref.orderBy('MayorPAhorcado').limit(5))
     return this.Ahorcado.valueChanges().subscribe(puntajes =>
       {
         this.AhorcadoP = []

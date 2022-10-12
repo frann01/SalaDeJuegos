@@ -58,6 +58,11 @@ body
     text-align: center;
 }
 
+.ahorcado
+{
+  margin-left: 10%;
+}
+
 .div_img
 {
     display: flex;

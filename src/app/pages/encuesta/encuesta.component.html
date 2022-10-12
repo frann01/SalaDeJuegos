@@ -52,6 +52,12 @@ backdrop-filter: blur(7px); border-radius: 20px;">
               forma.controls.edad.touched">
               La edad debe ser de 18 a 99 años
             </small>
+            <small class="invalid"
+                *ngIf="
+                forma.controls.edad.errors?.pattern &&
+                forma.controls.edad.touched">
+                La edad solo puede contener numeros
+              </small>
               </div>
             </div>
 
@@ -87,6 +93,12 @@ backdrop-filter: blur(7px); border-radius: 20px;">
                 forma.controls.telefono.errors?.maxlength &&
                 forma.controls.telefono.touched">
                 El teléfono no debe tener mas de 10 numeros
+              </small>
+              <small class="invalid"
+                *ngIf="
+                forma.controls.telefono.errors?.pattern &&
+                forma.controls.telefono.touched">
+                El teléfono solo puede contener numeros
               </small>
                 </div>
   

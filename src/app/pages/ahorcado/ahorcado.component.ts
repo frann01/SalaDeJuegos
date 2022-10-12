@@ -346,6 +346,7 @@ export class AhorcadoComponent implements OnInit {
 
   JugarDeVuelta() 
   {
+    this.sonidos.Click()
     this.habilitarBotones()
     this.comenzar()
   }

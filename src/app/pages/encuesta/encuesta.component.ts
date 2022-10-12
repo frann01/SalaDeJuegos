@@ -18,8 +18,8 @@ export class EncuestaComponent implements OnInit {
     this.forma = this.fb.group({
       'nombre': ['', [Validators.required, this.spacesValidator]],
       'apellido': ['', [Validators.required, this.spacesValidator]],
-      'edad': ['', [Validators.required, Validators.min(18), Validators.max(99)]],
-      'telefono': ['', [Validators.required, Validators.maxLength(10)]],
+      'edad': ['', [Validators.required, Validators.min(18), Validators.max(99),Validators.pattern("^[0-9]*$")]],
+      'telefono': ['', [Validators.required, Validators.maxLength(10), Validators.pattern("^[0-9]*$")]],
       'sexo': ['', Validators.required],
       'recomendar': ['', Validators.required],
       'juegoFav': ['', Validators.required],

@@ -2,6 +2,8 @@ import { Injectable } from '@angular/core';
 import { Mensaje } from './mensaje';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/compat/firestore';
 import { AuthService } from './auth.service';
+import { timestamp } from 'rxjs';
+import { Timestamp } from 'firebase/firestore';
 
 @Injectable({
   providedIn: 'root'
@@ -20,12 +22,13 @@ export class ChatSeviceService {
 
   cargarMensajes() {
 
-    this.itemsCollection = this.afs.collection<Mensaje>('mensajes', ref => ref.orderBy('fecha', 'desc').limit(20));
+    this.itemsCollection = this.afs.collection<Mensaje>('mensajes', ref => ref.orderBy('fecha'));
     return this.itemsCollection.valueChanges().subscribe(mensajes =>
       {
         this.mensajes=[];
         mensajes.forEach(mensaje => {
-          this.mensajes.unshift(mensaje);
+          mensaje.fecha = mensaje.fecha.toDate().toDateString() + ", "+ mensaje.fecha.toDate().toLocaleTimeString()
+          this.mensajes.push(mensaje);
         });
 
       })
@@ -35,7 +38,7 @@ export class ChatSeviceService {
     let newMessage: Mensaje = {
       usuario: message.usuario,
       texto: message.texto,
-      fecha: this.formatDate(new Date()),
+      fecha: new Date(),
       foto: message.foto
     };
 

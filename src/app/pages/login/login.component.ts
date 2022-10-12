@@ -62,7 +62,7 @@ export class LoginComponent implements OnInit {
 
   async Perfil2()
   {
-    this.email="pedrogomez@gmail.com";
+    this.email="usuario@gmail.com";
     this.clave = '123456';
   }
 

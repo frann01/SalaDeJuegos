@@ -45,7 +45,7 @@ border-radius: 15px;
 
 
 .glow-on-hover {
-    width: 100%;
+    width: 60%;
     height: 50px;
     border: none;
     outline: none;
@@ -59,6 +59,8 @@ border-radius: 15px;
     margin-right: auto;
     display: block;
     margin-top: 5px;
+    margin-bottom: 2%;
+    font-size: x-large;
   }
   
   .glow-on-hover:before {
@@ -107,4 +109,18 @@ border-radius: 15px;
     0% { background-position: 0 0; }
     50% { background-position: 400% 0; }
     100% { background-position: 0 0; }
+  }
+
+  .imagen
+  {
+    width: 60%;
+    border-radius: 15px;
+    margin-top: 5%;
+    border-style: solid;
+    border-width: 3px;
+    -webkit-box-shadow:0px 0px 86px 5px rgba(227,46,255,0.65);
+-moz-box-shadow: 0px 0px 86px 5px rgba(227,46,255,0.65);
+box-shadow: 0px 0px 86px 5px rgba(227,46,255,0.65);
+
+    border-color: #000;
   }
